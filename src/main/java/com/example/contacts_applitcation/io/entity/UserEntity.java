@@ -1,9 +1,6 @@
 package com.example.contacts_applitcation.io.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,7 +9,8 @@ public class UserEntity implements Serializable {
     private static final long serialVersionUID = 8458481569635191532L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long Id;
     @Column(nullable = false)
     private String userId;
@@ -20,7 +18,7 @@ public class UserEntity implements Serializable {
     private String firstName;
     @Column(nullable = false,length = 50)
     private String lastName;
-    @Column(nullable = false,length = 150)
+    @Column(nullable = false,length = 120)
     private String email;
     @Column(nullable = false)
 
