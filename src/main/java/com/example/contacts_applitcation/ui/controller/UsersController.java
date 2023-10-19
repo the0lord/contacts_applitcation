@@ -33,7 +33,7 @@ public class UsersController {
         BeanUtils.copyProperties(createdUser,returnValue);
         return returnValue;
     }
-    @PutMapping("/users")
+    @PutMapping(path = "/{id}")
     public UserRest updateUser(@PathVariable String id,@RequestBody UserDetailsRequestModel user) {
         UserDto userDto = new UserDto();
         BeanUtils.copyProperties(user,userDto);
