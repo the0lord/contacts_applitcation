@@ -33,10 +33,21 @@ public class UsersController {
         BeanUtils.copyProperties(createdUser,returnValue);
         return returnValue;
     }
-    @PutMapping
-    public String postUser() { return "message from postUser method";}
-    @DeleteMapping
-    public String deleteUser() { return "message from deleteUser method";}
+    @PutMapping("/users")
+    public UserRest updateUser(@PathVariable String id,@RequestBody UserDetailsRequestModel user) {
+        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(user,userDto);
+        UserDto createdUser = userService.updateUser(id,userDto);
+        UserRest returnValue = new UserRest();
+        BeanUtils.copyProperties(createdUser,returnValue);
+        return returnValue;
+    }
+    @DeleteMapping(path = "/{id}")
+    public String deleteUser(@PathVariable String id) {
+        userService.deleteUser(id);
+        return "User with id" + id + "has been deleted";
+    }
+
 
 
 }
