@@ -1,10 +1,17 @@
 package com.example.contacts_applitcation.io.entity;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Profile;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.Serializable;
 
 @Entity(name = "users")
+
 public class UserEntity implements Serializable {
     private static final long serialVersionUID = 8458481569635191532L;
 
