@@ -1,12 +1,19 @@
 package com.example.contacts_applitcation.ui.model.response;
 
-public class AddressesRest {
+import org.springframework.hateoas.RepresentationModel;
+
+public class AddressesRest extends RepresentationModel<AddressesRest> {
     private String addressId;
     private String city;
     private String country;
     private String streetName;
     private String postalCode;
     private String type;
+
+    public String getAddressId() {
+        return addressId;
+    }
+
     public void setAddressId(String addressId) {
         this.addressId = addressId;
     }

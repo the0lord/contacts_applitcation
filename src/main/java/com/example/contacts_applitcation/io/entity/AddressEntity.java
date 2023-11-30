@@ -9,7 +9,7 @@ public class AddressEntity implements Serializable {
     private static final long serialVersionUID = 1839028012231721653L;
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     @Column
     private String addressId;               // public ID to be shared inside server response
     @Column(length = 15, nullable = false)
@@ -25,11 +25,11 @@ public class AddressEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "users_id")
     private UserEntity userDetails;
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

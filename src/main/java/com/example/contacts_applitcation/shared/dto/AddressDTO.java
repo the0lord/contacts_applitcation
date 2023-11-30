@@ -1,7 +1,7 @@
 package com.example.contacts_applitcation.shared.dto;
 
 public class AddressDTO {
-    private long id;
+    private Long id;
     private String country;
     private String type;
     private String addressId;
@@ -11,11 +11,11 @@ public class AddressDTO {
     private String postalCode;
     private String city;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

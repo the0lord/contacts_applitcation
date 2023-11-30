@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class ContactsApplicationApplication {
+public class ContactsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ContactsApplicationApplication.class, args);
+        SpringApplication.run(ContactsApplication.class, args);
     }
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
