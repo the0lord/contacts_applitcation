@@ -147,6 +147,21 @@ public class UsersController {
 
         return CollectionModel.of(returnValue).add(userLink).add(selfLink);
     }
+    @GetMapping(path="/email-verification",produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public OperationStatusModel verifyEmailToken(@RequestParam(value = "token", defaultValue = "") String token) {
+        OperationStatusModel returnValue = new OperationStatusModel();
+        returnValue.setOperationName(RequestOperationName.VERIFY_EMAIL.name());
 
+        boolean isVerify = userService.verifyEmailToken(token);
+
+        if (isVerify == true) {
+            returnValue.setOperationResult(RequestOperationStatus.SUCCES.name());
+        } else {
+            returnValue.setOperationResult(RequestOperationStatus.ERROE.name());
+        }
+
+
+        return returnValue;
+    }
 
 }
