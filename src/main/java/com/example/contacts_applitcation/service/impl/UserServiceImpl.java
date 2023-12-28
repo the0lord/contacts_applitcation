@@ -3,6 +3,7 @@ package com.example.contacts_applitcation.service.impl;
 import com.example.contacts_applitcation.io.UserRepository;
 import com.example.contacts_applitcation.io.entity.UserEntity;
 import com.example.contacts_applitcation.service.UserService;
+import com.example.contacts_applitcation.shared.AmazonSES;
 import com.example.contacts_applitcation.shared.Utils;
 import com.example.contacts_applitcation.shared.dto.AddressDTO;
 import com.example.contacts_applitcation.shared.dto.UserDto;
@@ -62,6 +63,9 @@ public class UserServiceImpl implements UserService {
 
 
         UserDto returnValue = modelMapper.map(storedUser, UserDto.class);
+
+
+        new AmazonSES().verifyEmail(returnValue);
 
         return returnValue;
     }
